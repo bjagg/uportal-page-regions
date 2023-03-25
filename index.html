@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Region Playground</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-main.css" type="text/css" media="all">
+  </head>
+  <body class="site">
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    <div id="hidden-top" class="page-region hidden-region"></div>
+    <div id="eyebrow" class="page-region"></div>
+    <header class="masthead">
+      <div id="header-top" class="page-region"></div>
+      <div id="header-left" class="page-region">
+      </div>
+      <div id="header-right" class="page-region"></div>
+      <div id="header-bottom" class="page-region"></div>
+    </header>
+    <nav id="nav" class="page-region"></nav>
+    <div id="customize" class="page-region"></div>
+    <main>
+      <div id="pre-content" class="page-region"></div>
+      <div id="content" class="page-region"></div>
+      <div id="post-content" class="page-region"></div>
+      <div id="sidebar-left" class="page-region"></div>
+      <div id="sidebar-right" class="page-region"></div>
+    </main>
+    <footer id="footer-first" class="page-region"></footer>
+    <footer id="footer-second" class="page-region"></footer>
+    <footer id="page-bottom" class="page-region"></footer>
+    <div id="hidden-bottom" class="page-region hidden-region"></div>
+  </body>
+  <script>
+    const regions = document.getElementsByClassName("page-region");
+    for (let i=0; i < regions.length; i++) {
+      regions[i].innerHTML += regions[i].id;
+    }
+  </script>
+</html>

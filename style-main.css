@@ -1,0 +1,80 @@
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.page-region {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px blue;
+  margin: 8px;
+  padding: .5em;
+}
+
+.hidden-region {
+  border: dashed 1px blue;
+}
+
+@supports (grid-area: auto) {
+
+  header, main {
+    border: dotted orange 1px;
+    background: #ffead7;
+    margin: 10px 0;
+    display: grid;
+    transition: 2s;
+  }
+
+  header {
+    grid-template-columns: auto;
+    transition: 2s;
+  }
+
+  @media screen and (min-width: 45em) {
+
+    header {
+      grid-template-columns: auto auto;
+    }
+
+    #header-top, #header-bottom {
+      grid-column: 1 / span 2;
+    }
+
+    #header-left {
+      grid-column: 1 / 2;
+    }
+
+    #header-right {
+      grid-column: 2 / 3;
+    }
+
+    main {
+      grid-template-areas:
+      'sidebarLeft preContent sidebarRight'
+      'sidebarLeft content sidebarRight'
+      'sidebarLeft postContent sidebarRight';
+      grid-template-columns: 1fr 3fr 1fr;
+      grid-template-rows: 3em 1fr 3em;
+    }
+
+    #pre-content { grid-area: preContent;}
+    #post-content { grid-area: postContent;}
+    #content {
+      grid-area: content;
+      height: 10em;
+    }
+    #sidebar-left { grid-area: sidebarLeft;}
+    #sidebar-right { grid-area: sidebarRight;}
+  }
+
+}
+
